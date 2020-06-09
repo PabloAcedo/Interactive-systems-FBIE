@@ -8,17 +8,16 @@ using System.Diagnostics;
 public class TrackingReceiver : MonoBehaviour
 {
     //GameObjects to be controlled with Posenet
-    public GameObject nose;
+
     public GameObject wristR;
     public GameObject wristL;
-
-    public GameObject elbowL;
-
-    public GameObject elbowR;
-
     public GameObject shoulderL;
-
     public GameObject shoulderR;
+
+    public GameObject ankleL;
+    public GameObject ankleR;
+
+    private Vector3 offset1;
 
     //OSC Variables
     private OSCReceiver _receiver;
@@ -35,6 +34,9 @@ public class TrackingReceiver : MonoBehaviour
 
         //Initialize pose
         StartPose();
+
+        offset1 = new Vector3(0,50,0);
+
     }
 
     void StartOSCReceiver() {
@@ -49,27 +51,38 @@ public class TrackingReceiver : MonoBehaviour
     }
 
     void StartPose() {
-        pose.Add("nose", nose.transform.position);
+
         pose.Add("rightWrist", wristR.transform.position);
         pose.Add("leftWrist", wristL.transform.position);
-        pose.Add("leftElbow", elbowL.transform.position);
-        pose.Add("rightElbow", elbowR.transform.position);
         pose.Add("leftShoulder", shoulderL.transform.position);
-        pose.Add("rightShoulder", shoulderL.transform.position);
+        pose.Add("rightShoulder", shoulderR.transform.position);
+        //pose.Add("leftAnkle", ankleL.transform.position);
+        //pose.Add("rightAnkle", ankleR.transform.position);
+        pose.Add("leftKnee", ankleL.transform.position);
+        pose.Add("rightKnee", ankleR.transform.position);
 
     }
-    
 
+    
     // Update is called once per frame
     void Update()
     {
-        nose.transform.position = pose["nose"];
-        wristR.transform.position = pose["rightWrist"];
-        wristL.transform.position = pose["leftWrist"];
-        elbowL.transform.position = pose["leftElbow"];
-        elbowR.transform.position = pose["rightElbow"];
+
         shoulderL.transform.position = pose["leftShoulder"];
         shoulderR.transform.position = pose["rightShoulder"];
+
+
+        wristR.transform.position = new Vector3(pose["rightWrist"].x,pose["rightWrist"].y,-40.0f)+offset1;
+
+        wristL.transform.position =new Vector3(pose["leftWrist"].x,pose["leftWrist"].y,-40.0f)+offset1;
+
+    
+        //ankleR.transform.position = pose["rightAnkle"];
+        //ankleL.transform.position =pose["leftAnkle"];
+
+        ankleR.transform.position = pose["rightKnee"]+offset1;
+        ankleL.transform.position =pose["leftKnee"]+offset1;
+        
     }
 
     protected void MessageReceived(OSCMessage message)
