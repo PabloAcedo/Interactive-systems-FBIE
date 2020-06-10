@@ -7,7 +7,9 @@ TagManager:
   - hand
   - skull
   - object_destroyer
-  - sheep
+  - Hand
+  - arm
+  - forearm
   layers:
   - Default
   - TransparentFX
