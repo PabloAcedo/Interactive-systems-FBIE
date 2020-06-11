@@ -10,6 +10,11 @@ TagManager:
   - Hand
   - arm
   - forearm
+  - DefaultMode
+  - PlayMode
+  - LeftH
+  - RightH
+  - Quit
   layers:
   - Default
   - TransparentFX

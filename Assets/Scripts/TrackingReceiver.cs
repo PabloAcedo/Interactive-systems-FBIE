@@ -35,7 +35,7 @@ public class TrackingReceiver : MonoBehaviour
         //Initialize pose
         StartPose();
 
-        offset1 = new Vector3(0,50,0);
+        offset1 = new Vector3(0,150,0);
 
     }
 
@@ -58,8 +58,6 @@ public class TrackingReceiver : MonoBehaviour
         pose.Add("rightShoulder", shoulderR.transform.position);
         //pose.Add("leftAnkle", ankleL.transform.position);
         //pose.Add("rightAnkle", ankleR.transform.position);
-        pose.Add("leftKnee", ankleL.transform.position);
-        pose.Add("rightKnee", ankleR.transform.position);
 
     }
 
@@ -80,9 +78,6 @@ public class TrackingReceiver : MonoBehaviour
         //ankleR.transform.position = pose["rightAnkle"];
         //ankleL.transform.position =pose["leftAnkle"];
 
-        ankleR.transform.position = pose["rightKnee"]+offset1;
-        ankleL.transform.position =pose["leftKnee"]+offset1;
-        
     }
 
     protected void MessageReceived(OSCMessage message)
