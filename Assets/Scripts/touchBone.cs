@@ -44,6 +44,26 @@ public class touchBone : MonoBehaviour
             bone = "Radius and Ulna";
             bones.text = bone;
         }
+        else if (other.CompareTag("ribs"))
+        {
+            bone = "Ribs";
+            bones.text = bone;
+        }
+        else if (other.CompareTag("pelvis"))
+        {
+            bone = "Pelvis";
+            bones.text = bone;
+        }
+        else if (other.CompareTag("upperleg"))
+        {
+            bone = "Femur";
+            bones.text = bone;
+        }
+        else if (other.CompareTag("lowerleg"))
+        {
+            bone = "Tibia and Fibula";
+            bones.text = bone;
+        }
     }
 
     private void OnTriggerExit(Collider other){
