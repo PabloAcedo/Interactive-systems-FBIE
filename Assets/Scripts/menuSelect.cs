@@ -18,7 +18,7 @@ public class menuSelect : MonoBehaviour
     void Start()
     {
         invoke = false;
-        time = 5.0f;
+        time = 4.0f;
     }
 
     // Update is called once per frame
@@ -31,6 +31,7 @@ public class menuSelect : MonoBehaviour
 
         if(time < 1){
             if (trig.CompareTag("DefaultMode")){
+                gamemode = false; //activate the game mode in order to play
                 PlayGame(); //play game in default mode (only touching bones)
             }else if (trig.CompareTag("PlayMode")){
                 gamemode = true; //activate the game mode in order to play
@@ -39,6 +40,11 @@ public class menuSelect : MonoBehaviour
             
                 Debug.Log("Bye!!");
                 Application.Quit(); //kill app
+                
+            }else if(trig.CompareTag("MenuBack")){
+                gamemode = false;
+                Back2Menu();
+               
             }
         }
         
@@ -50,6 +56,15 @@ public class menuSelect : MonoBehaviour
         SceneManager.LoadScene(1);//load the main scene
 
     }
+
+     public void Back2Menu(){
+
+        SceneManager.LoadScene(0);//load the menu
+
+    }
+
+
+    
 
     private void OnTriggerEnter(Collider other){
         invoke = true; //if an option is touch with the hand, call the option

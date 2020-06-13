@@ -35,7 +35,7 @@ public class TrackingReceiver : MonoBehaviour
         //Initialize pose
         StartPose();
 
-        offset1 = new Vector3(0,150,0);
+        offset1 = new Vector3(0,50,0);
 
     }
 
@@ -56,8 +56,8 @@ public class TrackingReceiver : MonoBehaviour
         pose.Add("leftWrist", wristL.transform.position);
         pose.Add("leftShoulder", shoulderL.transform.position);
         pose.Add("rightShoulder", shoulderR.transform.position);
-        //pose.Add("leftAnkle", ankleL.transform.position);
-        //pose.Add("rightAnkle", ankleR.transform.position);
+        pose.Add("leftAnkle", ankleL.transform.position);
+        pose.Add("rightAnkle", ankleR.transform.position);
 
     }
 
@@ -70,13 +70,13 @@ public class TrackingReceiver : MonoBehaviour
         shoulderR.transform.position = pose["rightShoulder"];
 
 
-        wristR.transform.position = new Vector3(pose["rightWrist"].x,pose["rightWrist"].y,-40.0f)+offset1;
+        wristR.transform.position = new Vector3(pose["rightWrist"].x,pose["rightWrist"].y,-40.0f);
 
         wristL.transform.position =new Vector3(pose["leftWrist"].x,pose["leftWrist"].y,-40.0f)+offset1;
 
     
-        //ankleR.transform.position = pose["rightAnkle"];
-        //ankleL.transform.position =pose["leftAnkle"];
+        ankleR.transform.position = new Vector3(pose["rightAnkle"].x,pose["rightAnkle"].y,-40.0f);
+        ankleL.transform.position = new Vector3(pose["leftAnkle"].x,pose["rightAnkle"].y,-40.0f);
 
     }
 

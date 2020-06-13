@@ -21,7 +21,7 @@ public class changeColor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
 
-        if (other.CompareTag("hand")){
+        if (other.CompareTag("hand") || other.CompareTag("Hand")){
             r.material.SetColor("_Color",Color.blue);
         }
 

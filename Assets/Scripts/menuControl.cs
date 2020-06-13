@@ -28,7 +28,7 @@ public class menuControl : MonoBehaviour
         //Initialize pose
         StartPose();
 
-        offset1 = new Vector3(0,50,0);
+        offset1 = new Vector3(0,0,0);
 
     }
 

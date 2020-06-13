@@ -19,6 +19,7 @@ TagManager:
   - pelvis
   - upperleg
   - lowerleg
+  - MenuBack
   layers:
   - Default
   - TransparentFX
