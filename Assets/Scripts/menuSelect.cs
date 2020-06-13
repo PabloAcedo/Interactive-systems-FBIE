@@ -73,7 +73,7 @@ public class menuSelect : MonoBehaviour
 
     private void OnTriggerExit(Collider other){
         invoke = !invoke; //exit option
-        time = 5.0f; //reset counter
+        time = 4.0f; //reset counter
     }
 
 }
