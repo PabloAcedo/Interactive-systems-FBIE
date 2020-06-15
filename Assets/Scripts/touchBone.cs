@@ -17,6 +17,8 @@ public class touchBone : MonoBehaviour
    
     public float time;
 
+    float minTime; //time to wait
+
     int score; public int opt;
 
     void Start()
@@ -24,7 +26,8 @@ public class touchBone : MonoBehaviour
         //init
         bone = "Touch a bone";
         gameMode = menuSelect.gamemode;
-        time = 4.0f;
+        minTime = 3.0f; //time to wait, 3 seconds
+        time = minTime;
         score = 0;
         
         if(gameMode){
@@ -48,10 +51,12 @@ public class touchBone : MonoBehaviour
 
         if(gameMode){
 
+            //when the user touch the correct bone, wait 3 seconds
             if (tagOption == touchedBonetag){
             time -= Time.deltaTime;
             }
 
+            //when the time is over, 
             if(time < 1){
                 SumScore();
             }
@@ -100,21 +105,22 @@ public class touchBone : MonoBehaviour
 
     //with this method we control the game mode of the app
     void InGame(){
-        opt = Random.Range(0,6);
-        changeBone2touch(opt);
-        bones.text = bone;
+        opt = Random.Range(0,6); //random option
+        changeBone2touch(opt); //changing wich bone the user has to touch
+        bones.text = bone; //displaying the text
     }
 
     //sum score and change bone to touch 
     void SumScore(){
-        score+=1;
-        time = 4.0f;
+        score+=1; //adding one point
+        time = minTime; //reset the time
         ScoreText.text = "Score: "+ score.ToString();
         InGame();
     }
 
     private void OnTriggerEnter(Collider other){
 
+        //in default/informative mode, change which bone you are touching
         if(!gameMode){
             if (other.CompareTag("skull")){
                 bone = "skull";
@@ -143,23 +149,13 @@ public class touchBone : MonoBehaviour
                 bone = "Tibia and Fibula";
             }
 
-            bones.text = bone; //displaying the text (the bone that the user is touching)
+            bones.text = "Last bone touched: " + bone; //displaying the text (the bone that the user is touching)
 
         }else{ //if game mode
-            touchedBonetag = other.tag;
-            time = 4.0f; //if tag is changed 
+            touchedBonetag = other.tag; //saving tag to compare
+            time = minTime; //if tag is changed 
         }
 
-    }
-
-    private void OnTriggerExit(Collider other){
-
-        if(!gameMode){
-            bone = "Touch a bone";
-            bones.text = bone;
-        }
-        
-        
     }
 
 }
