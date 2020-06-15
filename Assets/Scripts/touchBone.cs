@@ -12,6 +12,7 @@ public class touchBone : MonoBehaviour
 
     public Text bones; //text
     public Text ScoreText; //score text
+    public Image timerbar; //time image
 
     private bool gameMode; //para saber si el modo es el de touchbone o el de jugar(si es true, es el de jugar)
    
@@ -53,12 +54,14 @@ public class touchBone : MonoBehaviour
 
             //when the user touch the correct bone, wait 3 seconds
             if (tagOption == touchedBonetag){
-            time -= Time.deltaTime;
+                timerbar.fillAmount = time / 3;
+                time -= Time.deltaTime;
             }
 
             //when the time is over, 
-            if(time < 1){
+            if (time < 0.1){
                 SumScore();
+                timerbar.fillAmount = 1;
             }
 
         }else{
