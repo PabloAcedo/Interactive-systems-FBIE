@@ -2,7 +2,7 @@ Project by Pablo Acedo, Arnau De Bonis and Sergi Centeno.
 
 Please, make sure that PoseNet is tracking all your body. Begin with the menu scene. 
 
-In the menu, if you are touching an option and the timer is not running (the purple circle at the left), please stop touching the option and touch it again.
+In the menu, if you are touching an option and the timer is not running (the purple circle at the right), please stop touching the option and touch it again.
 
 Thank you, enjoy.
 
