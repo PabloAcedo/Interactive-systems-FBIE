@@ -13,12 +13,13 @@ public class menuSelect : MonoBehaviour
 
     Collider trig;
     public float time;
+    public Image timerbar; //time image
 
     // Start is called before the first frame update
     void Start()
     {
         invoke = false;
-        time = 4.0f;
+        time = 3.0f;
     }
 
     // Update is called once per frame
@@ -26,10 +27,11 @@ public class menuSelect : MonoBehaviour
     {
         //compute the time (countdown of 5 seconds) since the hand is touching the option of the menu
         if (invoke == true){
+            timerbar.fillAmount = time / 3;
             time -= Time.deltaTime;
         }
 
-        if(time < 1){
+        if(time <= 0){
             if (trig.CompareTag("DefaultMode")){
                 gamemode = false; //activate the game mode in order to play
                 PlayGame(); //play game in default mode (only touching bones)
@@ -73,7 +75,8 @@ public class menuSelect : MonoBehaviour
 
     private void OnTriggerExit(Collider other){
         invoke = !invoke; //exit option
-        time = 4.0f; //reset counter
+        timerbar.fillAmount = 1;
+        time = 3.0f; //reset counter
     }
 
 }

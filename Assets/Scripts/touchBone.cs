@@ -30,7 +30,8 @@ public class touchBone : MonoBehaviour
         minTime = 3.0f; //time to wait, 3 seconds
         time = minTime;
         score = 0;
-        
+        timerbar.enabled = false;
+
         if(gameMode){
             ScoreText.text = "Score: ";
             //begin always with the skull option
@@ -38,6 +39,7 @@ public class touchBone : MonoBehaviour
             bone = "Touch your skull";
             bones.text = bone;
             ScoreText.text = "Score: "+ score.ToString();
+            timerbar.enabled = true;
         }
         
         
@@ -47,8 +49,6 @@ public class touchBone : MonoBehaviour
     void Update()
     {  
         gameMode = menuSelect.gamemode;
-
-        
 
         if(gameMode){
 
