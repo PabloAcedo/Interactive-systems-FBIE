@@ -1,4 +1,6 @@
-Final project for the UPF Interactive Systems subject, by Pablo Acedo, Arnau De Bonis and Sergi Centeno.
+Final project for the UPF Interactive Systems subject 
+
+**Authors:** Pablo Acedo, Arnau De Bonis and Sergi Centeno.
 
 Please, make sure that PoseNet is tracking all your body. Begin with the menu scene. 
 
