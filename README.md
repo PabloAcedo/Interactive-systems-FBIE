@@ -1,4 +1,4 @@
-Final project for the UPF Interactive Systems subject 
+# Final project for the UPF Interactive Systems subject 
 
 **Authors:** Pablo Acedo, Arnau De Bonis and Sergi Centeno.
 
