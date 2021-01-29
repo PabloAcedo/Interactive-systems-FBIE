@@ -8,6 +8,8 @@ In the menu, if you are touching an option and the timer is not running (the pur
 
 Thank you, enjoy.
 
+[Link to the video](https://www.youtube.com/watch?v=rf9UdmiUPQ4)
+
 
 # PoseNetOSC-Unity
 
